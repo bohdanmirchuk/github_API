@@ -1,0 +1,28 @@
+body {
+  background: #333;
+}
+section {
+  margin-top: 15px;
+}
+h2 {
+  color: #0eefe4; 
+}
+button {
+  background: #0eefe4;
+  color: #333;
+}
+button:hover {
+  cursor: pointer;
+}
+.profiledata h4 {
+  margin-bottom: 0;
+}
+.profiledata .header-cnt {
+  margin-bottom: 15px;
+}
+.profiledata p {
+  margin: 0px;
+}
+.profiledata a {
+  color: #0eefe4;
+}
