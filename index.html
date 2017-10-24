@@ -30,7 +30,7 @@
     <section id="get" class="row justify-content-center">  
       <div class="col-5">
         <h2>Get GitHub User Data</h2>
-        <form onsubmit="return getUserProfile(this)"">
+        <form onsubmit="getUserProfile(this); return false;"">
           <div class="form-group">
             <label class="text-light" for="userNameInput">Enter the GitHub username</label>
             <div class="form-inline">

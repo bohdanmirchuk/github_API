@@ -30,8 +30,6 @@ function getUserProfile(form){
     $('.following').attr('href', response.html_url+'?tab=following');
     $('.from').text(convertDate(response.created_at));
     $('.profilelink').attr('href', response.html_url);
-
-    return false;
   })
 
 };
