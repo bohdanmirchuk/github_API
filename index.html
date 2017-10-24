@@ -30,7 +30,7 @@
     <section id="get" class="row justify-content-center">  
       <div class="col-5">
         <h2>Get GitHub User Data</h2>
-        <form>
+        <form onsubmit="return getUserProfile(this)"">
           <div class="form-group">
             <label class="text-light" for="userNameInput">Enter the GitHub username</label>
             <div class="form-inline">
@@ -41,21 +41,21 @@
         <form>
       </div>
       <div class="col-3">
-        <img class="img-thumbnail rounded avatar fluid" src="https://avatars0.githubusercontent.com/u/24208485?v=4" alt="itspoma profile avatar">
+        <img class="img-thumbnail rounded avatar fluid" src="img/Octocat.png" alt="itspoma profile avatar">
       </div>
       <div class="col-4">
         <div class="text-light profiledata">
           <div class="header-cnt">
-            <h4>itspoma</h4>
-            <small>id: 230493</small>
+            <h4 class="login"></h4>
+            <small>id: <span class="id"></span></small>
           </div>
-          <p>Romak R</p>
-          <p>Lviv</p>
-          <p>Repositories: <span>23</span></p>
-          <p>Followers: <span>1</span></p>
-          <p>Following: <span>1</span></p>
-          <p>On Github from <span>November 2016</span></p>
-          <a href="https://github.com/itspoma">GitHub profile</a>
+          <p class="name"></p>
+          <p class="location">Lviv</p>
+          <p>Repositories: <span class="repositories"></span></p>
+          <p>Followers: <span class="followers"></span></p>
+          <p>Following: <span class="following"></span></p>
+          <p>On Github from <span class="from">/span></p>
+          <a href="https://github.com/itspoma" class="profilelink">GitHub profile</a>
         </div>
       </div>
     </section>
@@ -65,6 +65,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
 </body>
 </html>
