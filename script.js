@@ -23,14 +23,15 @@ function getUserProfile(form){
     $('.name').text(response.name);
     $('.location').text(response.location);
     $('.repositories').text(response.public_repos);
-    $('.repositories').attr('href', response.repos_url);
+    $('.repositories').attr('href', response.html_url+'?tab=repositories');
     $('.followers').text(response.followers);
-    $('.followers').attr('href', response.followers_url);
+    $('.followers').attr('href', response.html_url+'?tab=followers');
     $('.following').text(response.following);
-    $('.following').attr('href', response.following_url);
+    $('.following').attr('href', response.html_url+'?tab=following');
     $('.from').text(convertDate(response.created_at));
     $('.profilelink').attr('href', response.html_url);
 
+    return false;
   })
 
 };
