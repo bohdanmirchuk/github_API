@@ -14,6 +14,15 @@ button {
 button:hover {
   cursor: pointer;
 }
+div.sorry {
+  background: #b20800;
+  padding: 5px;
+  margin-top: 30px;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  opacity: 0;
+}
 .profiledata {
   opacity: 0;
 }
