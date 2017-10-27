@@ -34,18 +34,18 @@ $('#getUser').submit( function (event){
 })
 
 $('#createGist').submit(function (event) {
-  var url = 'https://api.github.com/gists';
+  var url = 'https://api.github.com/users/';
   var username = event.currentTarget[0].value;
   var password = event.currentTarget[1].value;
   var description = event.currentTarget[2].value;
   var filename = event.currentTarget[3].value;
   var content = event.currentTarget[4].value;
-
+  console.log(url, username, password, description, filename, content);
   // var header = { Authorization: "Basic " + btoa(username + ":" + password)};
 
   $.ajax({
     type: 'POST',
-    url: url,
+    url: url+username+'/gists',
     headers: {Authorization: "Basic " + btoa(username + ":" + password)},
     contentType: "application/json",
     data: {
