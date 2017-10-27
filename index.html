@@ -20,8 +20,8 @@
       <div class="navbar-nav ">
         <a class="nav-item nav-link " href="#get">Get <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link " href="#post">Post</a>
-        <a class="nav-item nav-link" href="#">Head</a>
-        <a class="nav-item nav-link" href="#">Put</a>
+        <a class="nav-item nav-link" href="#head">Head</a>
+        <a class="nav-item nav-link" href="#put">Put</a>
       </div>
     </div>
   </nav>
@@ -102,22 +102,19 @@
         <p class="text-light">Enter the username and you'll get the headers of your request</p>
       </div>
       <div class="col-3">
-        <form id="getHeaders">
+        <form>
           <div class="form-group">
             <p class="text-light">Enter the GitHub username</p>
             <div class="form-inline">
               <input type="text" class="form-control" placeholder="username">
-              <button type="button" class="btn">Get</button>
+              <button id="getHeaders" type="button" class="btn">Get</button>
             </div>
           </div>
         <form>
       </div>
       <div class="col-5 newgist">
         <div class=" text-light">
-          <p class="headers-list">
-            You've just created a new gist. Please, follow the next link to check it out:<br>
-            <a href="">New gist</a>
-          </p>
+          <p class="headers-list"></p>
           <p class="sorry text-light">
             Seems like you entered the wrong data...
           </p>

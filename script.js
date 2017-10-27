@@ -61,6 +61,29 @@ $('#createGist').click(function (event) {
   return false;
 })
 
+$('#getHeaders').on('click', function(event){
+  var username = event.currentTarget.parentElement.children[0].value;
+
+  $.ajax({ 
+    url: 'https://api.github.com/users/'+username,
+    type: 'HEAD',
+    statusCode: {
+      404: function() {
+        $('#head div.col-5').css('display', 'block');
+        $('#head p.sorry').css('display', 'block');
+        $('.headers-list').css('display', 'none');
+        }
+      }
+    })
+    .done(function(data, textStatus, xhr) {
+      $('#head div.col-5').css('display', 'block');
+      $('.headers-list').css('display', 'block');
+      $('#head p.sorry').css('display', 'none');
+      console.log(xhr.getAllResponseHeaders());
+      $('.headers-list').text(xhr.getAllResponseHeaders());
+    })
+})
+
 function convertDate(date){
   var arr = date.split('-');
   var monthNames = ["January", "February", "March", "April", "May", "June",
