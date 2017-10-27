@@ -35,7 +35,7 @@
             <p class="text-light">Enter the GitHub username</p>
             <div class="form-inline">
               <input type="text" class="form-control" placeholder="username">
-              <button type="submit" class="btn">Get</button>
+              <button type="button" class="btn">Get</button>
             </div>
           </div>
         <form>
@@ -70,20 +70,51 @@
         <p class="text-light">Just enter the login credentials for your GitHub account and add the description and file for the new gist </p>
       </div>
       <div class="col-3">
-        <form id="createGist">
+        <form>
           <div class="form-group">
             <input type="text" class="form-control" name="username" placeholder="Username">
             <input type="password" class="form-control" name=="password" placeholder="Password">
             <input type="text" class="form-control" name="description" placeholder="Gist description...">
             <input type="text" class="form-control" name="filename" placeholder="Filename including extention">
             <input type="text" class="form-control" name="content" placeholder="Content of the file...">
-            <button type="submit" class="btn float-right">Create</button>                        
+            <button id="createGist" type="button" class="btn float-right">Create</button>                        
           </div>
         <form>
       </div>
       <div class="col-4 newgist">
         <div class=" text-light">
           <p class="new-gist">
+            You've just created a new gist. Please, follow the next link to check it out:<br>
+            <a href="">New gist</a>
+          </p>
+          <p class="sorry text-light">
+            Seems like you entered the wrong data...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bar"></section>
+
+    <section id="head" class="row justify-content-center">
+      <div class="col-4">
+        <h2>Explore the HEAD Request Method</h2>
+        <p class="text-light">Enter the username and you'll get the headers of your request</p>
+      </div>
+      <div class="col-3">
+        <form id="getHeaders">
+          <div class="form-group">
+            <p class="text-light">Enter the GitHub username</p>
+            <div class="form-inline">
+              <input type="text" class="form-control" placeholder="username">
+              <button type="button" class="btn">Get</button>
+            </div>
+          </div>
+        <form>
+      </div>
+      <div class="col-5 newgist">
+        <div class=" text-light">
+          <p class="headers-list">
             You've just created a new gist. Please, follow the next link to check it out:<br>
             <a href="">New gist</a>
           </p>

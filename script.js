@@ -1,5 +1,5 @@
-$('#getUser').submit( function (event){
-  var username = event.currentTarget[0].value;
+$('#getUser button').on("click", function (event){
+  var username = event.currentTarget.parentElement.children[0].value;
 
   $.ajax({
     type: 'GET',
@@ -33,17 +33,15 @@ $('#getUser').submit( function (event){
   return false;
 })
 
-$('#createGist').submit(function (event) {
-  var url = 'https://api.github.com/gists';
-  var username = event.currentTarget[0].value;
-  var password = event.currentTarget[1].value;
-  var description = event.currentTarget[2].value;
-  var filename = event.currentTarget[3].value;
-  var content = event.currentTarget[4].value;
-
+$('#createGist').click(function (event) {
+  var username = event.currentTarget.parentElement.children[0].value;
+  var password = event.currentTarget.parentElement.children[1].value;
+  var description = event.currentTarget.parentElement.children[2].value;
+  var filename = event.currentTarget.parentElement.children[3].value;
+  var content = event.currentTarget.parentElement.children[4].value;
   $.ajax({
     type: 'POST',
-    url: url,
+    url: 'https://api.github.com/gists',
     headers: {Authorization: "Basic " + btoa(username + ":" + password)},
     contentType: "application/json",
     data: '{"description": "'+description+'", "public": true, "files": {"'+filename+'": {"content": "'+content+'"}}}',    
@@ -55,7 +53,6 @@ $('#createGist').submit(function (event) {
     }
   })
   .done(function(response){
-    console.log(response)
     $('#post p.sorry').css('display', 'none');
     $('#post p.new-gist').css('display', 'block');
     $('#post p.new-gist a').text(description);
