@@ -18,8 +18,8 @@
     </a>
     <div class="collapse navbar-collapse mr-auto justify-content-end " id="navbarNavAltMarkup">
       <div class="navbar-nav ">
-        <a class="nav-item nav-link active " href="#">Get <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link " href="#get">Post</a>
+        <a class="nav-item nav-link " href="#get">Get <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link " href="#post">Post</a>
         <a class="nav-item nav-link" href="#">Head</a>
         <a class="nav-item nav-link" href="#">Put</a>
       </div>
@@ -27,14 +27,14 @@
   </nav>
 
   <main class="container container-fluid ">
-    <section id="get" class="row justify-content-center">  
+<!--     <section id="get" class="row justify-content-center">  
       <div class="col-5">
         <h2>Get GitHub User Data</h2>
-        <form onsubmit="getUserProfile(this); return false;"">
+        <form id="getUser">
           <div class="form-group">
-            <label class="text-light" for="userNameInput">Enter the GitHub username</label>
+            <p class="text-light">Enter the GitHub username</p>
             <div class="form-inline">
-              <input type="text" class="form-control" id="userNameInput" placeholder="username">
+              <input type="text" class="form-control" placeholder="username">
               <button type="submit" class="btn">Get</button>
             </div>
           </div>
@@ -52,7 +52,7 @@
             <small>id: <span class="id"></span></small>
           </div>
           <p class="name"></p>
-          <p class="location">Lviv</p>
+          <p class="location"></p>
           <p>Repositories: <a class="repositories" href=""></a></p>
           <p>Followers: <a class="followers" href=""></a></p>
           <p>Following: <a class="following" href=""></a></p>
@@ -61,6 +61,42 @@
         </div>
       </div>
     </section>
+
+    <section class="bar"></section> -->
+
+    <section id="post" class="row justify-content-center">
+      <div class="col-4">
+        <h2>Create a New Gist on GitHub</h2>
+        <p class="text-light">Just enter the login credentials for your GitHub account and add the description and file for the new gist </p>
+      </div>
+      <div class="col-3">
+        <form id="createGist">
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username">
+            <input type="password" class="form-control" name=="password" placeholder="Password">
+            <input type="text" class="form-control" name="description" placeholder="Gist description...">
+            <input type="text" class="form-control" name="filename" placeholder="Filename including extention">
+            <input type="text" class="form-control" name="content" placeholder="Content of the file...">
+            <button type="submit" class="btn float-right">Create</button>                        
+          </div>
+        <form>
+      </div>
+      <div class="col-4 newgist">
+        <div class=" text-light">
+          <p class="new-gist">
+            You've just created a new gist. Please, follow the next link to check it out<br>
+            <a href="">New gist</a>
+          </p>
+          <p class="sorry text-light">
+            Seems like you entered the wrong data...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bar"></section>
+
+
   </main>
 
 

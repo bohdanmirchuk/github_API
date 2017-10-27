@@ -3,6 +3,11 @@ body {
 }
 section {
   margin-top: 15px;
+  margin-bottom: 25px;
+}
+section.bar {
+  height: 3px;
+  background: #0eefe4;
 }
 h2 {
   color: #0eefe4; 
@@ -35,6 +40,21 @@ div.sorry {
 .profiledata p {
   margin: 0px;
 }
-.profiledata a {
+.profiledata a, .newgist a {
   color: #0eefe4;
+}
+
+#post button {
+  position: relative;
+  right:  0px;
+}
+p.sorry {
+  background: #b20800;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 40px;
+}
+p.new-gist, p.sorry {
+  display: none;
 }

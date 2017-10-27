@@ -1,17 +1,16 @@
-function getUserProfile(form){
-  var username = form[0].value;
-  console.log(username);
+$('#getUser').submit( function (event){
+  var username = event.currentTarget[0].value;
 
   $.ajax({
-  type: 'GET',
-  url: 'https://api.github.com/users/'+username,
-  statusCode: {
-    404: function() {
-      $('.avatar').attr('src', 'img/Octocat.png');
-      $('.profiledata').css('opacity', 0);
-      $('div.sorry').css('opacity', 1);
+    type: 'GET',
+    url: 'https://api.github.com/users/'+username,
+    statusCode: {
+      404: function() {
+        $('.avatar').attr('src', 'img/Octocat.png');
+        $('.profiledata').css('opacity', 0);
+        $('div.sorry').css('opacity', 1);
+        }
     }
-  }
   })
   .done(function(response){
 
@@ -31,9 +30,46 @@ function getUserProfile(form){
     $('.from').text(convertDate(response.created_at));
     $('.profilelink').attr('href', response.html_url);
   })
+  return false;
+})
 
-};
+$('#createGist').submit(function (event) {
+  var url = 'https://api.github.com/gists';
+  var username = event.currentTarget[0].value;
+  var password = event.currentTarget[1].value;
+  var description = event.currentTarget[2].value;
+  var filename = event.currentTarget[3].value;
+  var content = event.currentTarget[4].value;
 
+  // var header = { Authorization: "Basic " + btoa(username + ":" + password)};
+
+  $.ajax({
+    type: 'POST',
+    url: url,
+    headers: {Authorization: "Basic " + btoa(username + ":" + password)},
+    contentType: "application/json",
+    data: {
+            "description": description,
+            "public": true,
+            "files": {
+                filename: {
+                  "content": content
+                }
+            }
+          },    
+    statusCode: {
+      404: function() {
+      $('#post p.sorry').css('display', 'block');
+      console.log(url, username, password, description, filename, content);
+
+    }
+    }
+  })
+  .done(function(response){
+    console.log(response)
+  })
+  return false;
+})
 
 function convertDate(date){
   var arr = date.split('-');
