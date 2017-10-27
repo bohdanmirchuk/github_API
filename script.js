@@ -34,39 +34,32 @@ $('#getUser').submit( function (event){
 })
 
 $('#createGist').submit(function (event) {
-  var url = 'https://api.github.com/users/';
+  var url = 'https://api.github.com/gists';
   var username = event.currentTarget[0].value;
   var password = event.currentTarget[1].value;
   var description = event.currentTarget[2].value;
   var filename = event.currentTarget[3].value;
   var content = event.currentTarget[4].value;
-  console.log(url, username, password, description, filename, content);
-  // var header = { Authorization: "Basic " + btoa(username + ":" + password)};
 
   $.ajax({
     type: 'POST',
-    url: url+username+'/gists',
+    url: url,
     headers: {Authorization: "Basic " + btoa(username + ":" + password)},
     contentType: "application/json",
-    data: {
-            "description": description,
-            "public": true,
-            "files": {
-                filename: {
-                  "content": content
-                }
-            }
-          },    
+    data: '{"description": "'+description+'", "public": true, "files": {"'+filename+'": {"content": "'+content+'"}}}',    
     statusCode: {
       404: function() {
       $('#post p.sorry').css('display', 'block');
-      console.log(url, username, password, description, filename, content);
-
-    }
+      $('#post p.new-gist').css('display', 'none');
+      }
     }
   })
   .done(function(response){
     console.log(response)
+    $('#post p.sorry').css('display', 'none');
+    $('#post p.new-gist').css('display', 'block');
+    $('#post p.new-gist a').text(description);
+    $('#post p.new-gist a').attr('href', 'https://gist.github.com/'+username+'/'+response.id);
   })
   return false;
 })
