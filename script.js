@@ -69,19 +69,41 @@ $('#getHeaders').on('click', function(event){
     type: 'HEAD',
     statusCode: {
       404: function() {
-        $('#head div.col-5').css('display', 'block');
         $('#head p.sorry').css('display', 'block');
         $('.headers-list').css('display', 'none');
         }
       }
     })
     .done(function(data, textStatus, xhr) {
-      $('#head div.col-5').css('display', 'block');
       $('.headers-list').css('display', 'block');
       $('#head p.sorry').css('display', 'none');
       console.log(xhr.getAllResponseHeaders());
       $('.headers-list').text(xhr.getAllResponseHeaders());
     })
+})
+
+$('#addFollowing').on('click', function(event){
+  var username = event.currentTarget.parentElement.children[0].value;
+  var password = event.currentTarget.parentElement.children[1].value;
+  var following = event.currentTarget.parentElement.children[2].value;
+  $.ajax({
+    url: 'https://api.github.com/user/following/'+following,
+    type: 'PUT',
+    headers: {Authorization: "Basic " + btoa(username + ":" + password)},
+    contentType: "application/json",
+      statusCode: {
+      404: function() {
+      $('#put p.sorry').css('display', 'block');
+      $('#post p.new-following').css('display', 'none');
+      }
+    }
+  })
+  .done(function(){
+  $('#put p.sorry').css('display', 'none');
+  $('#put p.new-following').css('display', 'block');
+  $('#put p.new-following a').attr('href', 'https://github.com/'+username+'?tab=following');
+
+  })
 })
 
 function convertDate(date){

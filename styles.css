@@ -55,9 +55,6 @@ p.sorry {
   text-align: center;
   margin-top: 40px;
 }
-p.new-gist, p.sorry, p.headers-list {
-  display: none;
-}
-#head div.col-5 {
+p.new-gist, p.sorry, p.headers-list, p.new-following {
   display: none;
 }

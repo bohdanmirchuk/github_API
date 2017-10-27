@@ -124,7 +124,33 @@
 
     <section class="bar"></section>
 
-
+    <section id="put" class="row justify-content-center">
+      <div class="col-4">
+        <h2>Add A User You Want to Follow</h2>
+        <p class="text-light">Just enter the login credentials for your GitHub account and the username of person, you want to follow</p>
+      </div>
+      <div class="col-3">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username">
+            <input type="password" class="form-control" name=="password" placeholder="Password">
+            <input type="text" class="form-control" name="following" placeholder="Person, you want to follow">
+            <button id="addFollowing" type="button" class="btn float-right">Create</button>                        
+          </div>
+        <form>
+      </div>
+      <div class="col-4 newgist">
+        <div class=" text-light">
+          <p class="new-following">
+            You've just added a new person to the list of GitHub users you are following. Check it out:<br>
+            <a href="">Following</a>
+          </p>
+          <p class="sorry text-light">
+            Seems like you entered the wrong data...
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
 
